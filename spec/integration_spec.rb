@@ -19,7 +19,6 @@ describe('the home path', {:type => :feature}) do
   end
   it('creates a contact object with user inputted properties') do
     visit('/contacts/new')
-  #   click_link('Add a new contact')
     fill_in('first_name', :with => 'Greatest')
     fill_in('last_name', :with => 'Ever')
     fill_in('company', :with => 'Skynet')

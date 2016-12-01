@@ -7,13 +7,14 @@
   </head>
   <body>
     <div class="container">
-      <div class="jumbotron">
+      <div class="jumbotron text-center">
         <h1>Contacts Book</h1>
       </div>
-      <div class="well">
-        <%= yield %>
+      <div class="row">
+        <div class="well col-md-8 col-md-offset-2">
+          <%= yield %>
+        </div>
       </div>
     </div>
-
   </body>
 </html>

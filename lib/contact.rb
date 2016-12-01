@@ -14,7 +14,6 @@ class Contact
   end
 
   def contact_email_addresses
-    binding.pry
     @contact_email_addresses
 
   end
