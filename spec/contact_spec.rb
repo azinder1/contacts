@@ -25,4 +25,11 @@ describe(Contact) do
       expect(Contact.find(@contact2.id())). to eq(@contact2)
     end
   end
+  describe('#add_email_address') do
+    it('adds a new email address to contact') do
+      test_email_address = EmailAddress.new({:email_address => "hsimpson@burns.com", :type => "work"})
+      @contact1.add_email_address(test_email_address)
+      expect(@contact1.contact_email_addresses()). to(eq([test_email_address]))
+    end
+  end
 end
