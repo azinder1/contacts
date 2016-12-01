@@ -5,10 +5,10 @@ require('mailing_address')
 describe(MailingAddress) do
   before() do
     MailingAddress.clear()
-    @addresshome = MailingAddress.new(:street_address => "742 Evergreen Terrace", :city => "Springfield", :state => "Oregon", :type => "home")
+    @addresshome = MailingAddress.new({:street_address => "742 Evergreen Terrace", :city => "Springfield", :state => "Oregon", :type => "Home"})
     @addresshome.save()
 
-    @addresswork = MailingAddress.new({:street_address => "666 Dead End Harbor", :city => "Cape Fear", :state => "Oregon", :type => "work"})
+    @addresswork = MailingAddress.new({:street_address => "666 Dead End Harbor", :city => "Cape Fear", :state => "Oregon", :type => "Work"})
     @addresswork.save()
   end
 
