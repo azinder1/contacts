@@ -18,13 +18,17 @@ describe('the home path', {:type => :feature}) do
     expect(page).to have_content("First Name:")
   end
   it('creates a contact object with user inputted properties') do
-    visit('/')
-    click_link('Add a new contact')
+    visit('/contacts/new')
+  #   click_link('Add a new contact')
     fill_in('first_name', :with => 'Greatest')
     fill_in('last_name', :with => 'Ever')
     fill_in('company', :with => 'Skynet')
     fill_in('job_title', :with => 'Terminator')
     click_button('Submit')
+    expect(page).to have_content("Greatest")
+  end
+  it('can display an instance of a contact object') do
+    visit('/contacts/1')
     expect(page).to have_content("Greatest")
   end
 end
