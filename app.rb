@@ -44,6 +44,37 @@ post('/contacts/:id/phone_numbers/new') do
   @contacts = Contact.all()
   new_number = PhoneNumber.new({:area_code => params.fetch('area_code'), :phone_number => params.fetch('phone_number'), :type => params.fetch('type')})
   new_number.save()
+  @contact.add_phone_number(new_number)
   @number = PhoneNumber.all()
+  erb(:contact)
+end
+
+get('/contacts/:id/email_addresses/new') do
+  @contact = Contact.find(params.fetch('id').to_i)
+  erb(:email_form)
+end
+
+post('/contacts/:id/email_addresses/new') do
+  @contact = Contact.find(params.fetch('id').to_i)
+  @contacts = Contact.all()
+  new_email = EmailAddress.new({:email_address => params.fetch('email_address'), :type => params.fetch('type')})
+  new_email.save()
+  @contact.add_email_address(new_email)
+  @email = EmailAddress.all()
+  erb(:contact)
+end
+
+get('/contacts/:id/mailing_addresses/new') do
+  @contact = Contact.find(params.fetch('id').to_i)
+  erb(:mailing_form)
+end
+
+post('/contacts/:id/mailing_addresses/new') do
+  @contact = Contact.find(params.fetch('id').to_i)
+  @contacts = Contact.all()
+  new_mailing = MailingAddress.new({:street_address => params.fetch('street_address'), :city => params.fetch('city'), :state => params.fetch('state'), :type => params.fetch('type')})
+  new_mailing.save()
+  @contact.add_mailing_address(new_mailing)
+  @mailing = MailingAddress.all()
   erb(:contact)
 end

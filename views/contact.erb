@@ -8,19 +8,36 @@
   <h4>Phone Numbers:</h4>
   <ul>
 
-
-  <% @contact.contact_phone_numbers.each() do |phone_info| %>
-    <li>Area Code: <%= phone_info.area_code() %></li>
-    <li>Phone Number: <%= phone_info.phone_number() %></li>
-    <li>Type: <%= phone_info.type() %></li>
-  <%binding.pry end %>
+  <% @contact.contact_phone_numbers.each() do |info| %>
+    <li>Area Code: <%= info.area_code() %></li>
+    <li>Phone Number: <%= info.phone_number() %></li>
+    <li>Type: <%= info.type() %></li>
+  <%end %>
   </ul>
 </div>
 
 <div class="contact_mailing_info">
+  <h4>Mailing Addresses:</h4>
+  <ul>
 
+  <% @contact.contact_mailing_addresses.each() do |info| %>
+    <li>Mailing Address: <%= info.street_address() %></li>
+    <li>City: <%= info.city() %></li>
+    <li>State: <%= info.state() %></li>
+    <li>Type: <%= info.type() %></li>
+  <%end %>
+  </ul>
 </div>
+
 <div class="contact_email_info">
+  <h4>Email Addresses:</h4>
+  <ul>
+
+  <% @contact.contact_email_addresses.each() do |info| %>
+    <li>Email Address: <%= info.email_address() %></li>
+    <li>Type: <%= info.type() %></li>
+  <%end %>
+  </ul>
 
 </div>
 <a href="/contacts/<%=@contact.id()%>/phone_numbers/new">Add a new phone number</a>
