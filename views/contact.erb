@@ -1,7 +1,28 @@
 <a href="/contacts">Go back to contacts</a>
-  <!-- <input type="hidden" name="contact_id" value="<%=@contact.id()%>"> -->
-<h2><%= @contact.first_name()%> <%= @contact.last_name()%></h2>
-<h4 class="company-info"> -<%= @contact.job_title()%>, <%= @contact.company()%></h4>
+<div class="contact_name_info">
+  <h2><%= @contact.first_name()%> <%= @contact.last_name()%></h2>
+  <h4 class="company-info"> -<%= @contact.job_title()%>, <%= @contact.company()%></h4>
+</div>
+
+<div class="contact_phone_info">
+  <h4>Phone Numbers:</h4>
+  <ul>
+
+
+  <% @contact.contact_phone_numbers.each() do |phone_info| %>
+    <li>Area Code: <%= phone_info.area_code() %></li>
+    <li>Phone Number: <%= phone_info.phone_number() %></li>
+    <li>Type: <%= phone_info.type() %></li>
+  <%binding.pry end %>
+  </ul>
+</div>
+
+<div class="contact_mailing_info">
+
+</div>
+<div class="contact_email_info">
+
+</div>
 <a href="/contacts/<%=@contact.id()%>/phone_numbers/new">Add a new phone number</a>
 <a href="/contacts/<%=@contact.id()%>/mailing_addresses/new">Add a mailing address</a>
 <a href="/contacts/<%=@contact.id()%>/email_addresses/new">Add a new email address</a>
