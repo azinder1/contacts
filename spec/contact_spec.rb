@@ -27,9 +27,10 @@ describe(Contact) do
   end
   describe('#add_email_address') do
     it('adds a new email address to contact') do
-      test_email_address = EmailAddress.new({:email_address => "hsimpson@burns.com", :type => "work"})
-      @contact1.add_email_address(test_email_address)
-      expect(@contact1.contact_email_addresses()). to(eq([test_email_address]))
+      test_phone = PhoneNumber.new(:area_code => "555" ,:phone_number => "555-5555", :type => "home")
+      test_phone.save()
+      @contact1.add_phone_number(test_phone)
+      expect(@contact1.contact_phone_numbers()).to(eq([test_phone]))
     end
   end
 end

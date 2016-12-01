@@ -14,14 +14,16 @@ class Contact
   end
 
   def contact_email_addresses
+    binding.pry
     @contact_email_addresses
+
   end
 
   def contact_mailing_addresses
     @contact_mailing_addresses
   end
 
-  def contact_email_addresses
+  def contact_phone_numbers
     @contact_phone_numbers
   end
 
