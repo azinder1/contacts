@@ -21,6 +21,7 @@ class Contact
   def self.clear
     @@contacts = []
   end
+
   def self.find(id)
     found_contact = nil
     @@contacts.each() do |contact|
