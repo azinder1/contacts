@@ -34,14 +34,16 @@ get('/contacts/:id') do
   erb(:contact)
 end
 
-get('/phone_numbers') do
+get('/contacts/:id/phone_numbers/new') do
   @contact = Contact.find(params.fetch('id').to_i)
   erb(:phone_form)
 end
-post('/phone_numbers') do
+
+post('/contacts/:id/phone_numbers/new') do
   @contact = Contact.find(params.fetch('id').to_i)
+  @contacts = Contact.all()
   new_number = PhoneNumber.new({:area_code => params.fetch('area_code'), :phone_number => params.fetch('phone_number'), :type => params.fetch('type')})
   new_number.save()
   @number = PhoneNumber.all()
-  erb(:contacts)
+  erb(:contact)
 end
