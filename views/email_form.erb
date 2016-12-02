@@ -1,5 +1,6 @@
 <h2>Add a email address to <%=@contact.first_name()%></h2>
-<form action="/contacts/<%=@contact.id()%>/email_addresses/new" method="post">
+<!-- <form action="/contacts/<%=@contact.id()%>/email_addresses/new" method="post"> -->
+<form action="/contacts/email_addresses/new" method="post">
   <input type="hidden" name="contact_id" value="<%=@contact.id()%>">
   <div class="form-group">
     <label for="email_address">Email Address:</label>

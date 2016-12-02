@@ -54,8 +54,9 @@ get('/contacts/:id/email_addresses/new') do
   erb(:email_form)
 end
 
-post('/contacts/:id/email_addresses/new') do
-  @contact = Contact.find(params.fetch('id').to_i)
+# post('/contacts/:id/email_addresses/new') do
+  post('/contacts/email_addresses/new') do
+  @contact = Contact.find(params.fetch('contact_id').to_i)
   @contacts = Contact.all()
   new_email = EmailAddress.new({:email_address => params.fetch('email_address'), :type => params.fetch('type')})
   new_email.save()
